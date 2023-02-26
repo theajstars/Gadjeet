@@ -1,20 +1,59 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import "react-native-gesture-handler";
+import { Button, StyleSheet, Text, View } from "react-native";
+import { Motion } from "@legendapp/motion";
+import { useEffect, useState } from "react";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import {
+  useNavigationState,
+  NavigationContainer,
+} from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import Main from "./Main";
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
+const Tab = createBottomTabNavigator();
+
+function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text>Home Screen</Text>
+      <Image source={Images.MenuIcon} />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+function SettingsScreen() {
+  return (
+    <View style={styles.container}>
+      <Text>Settings Screen</Text>
+    </View>
+  );
+}
+function ContactsScreen() {
+  return (
+    <View style={styles.container}>
+      <Text>Contacts Screen</Text>
+    </View>
+  );
+}
+function DownloadsScreen() {
+  return (
+    <View style={styles.container}>
+      <Text>Downloads Screen</Text>
+    </View>
+  );
+}
+export default function App({ navigation }) {
+  return (
+    <NavigationContainer>
+      {/* <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={HomeScreen} />
+        <Drawer.Screen name="Downloads" component={DownloadsScreen} />
+        <Drawer.Screen name="Settings" component={SettingsScreen} />
+        <Drawer.Screen name="Contacts" component={ContactsScreen} />
+      </Drawer.Navigator> */}
+      <Main />
+    </NavigationContainer>
+  );
+}
