@@ -1,58 +1,35 @@
 import "react-native-gesture-handler";
-import { Button, StyleSheet, Text, View } from "react-native";
-import { Motion } from "@legendapp/motion";
-import { useEffect, useState } from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import {
-  useNavigationState,
-  NavigationContainer,
-} from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+
+import { NavigationContainer } from "@react-navigation/native";
+import { useFonts } from "expo-font";
+
 import Main from "./Main";
 
-const Stack = createNativeStackNavigator();
-const Drawer = createDrawerNavigator();
-const Tab = createBottomTabNavigator();
+export default function App() {
+  const [fontsLoaded] = useFonts({
+    NotoSansBlack: require("./src/Assets/Fonts/NotoSans/NotoSans-Black.ttf"),
+    NotoSansBold: require("./src/Assets/Fonts/NotoSans/NotoSans-Bold.ttf"),
+    NotoSansMedium: require("./src/Assets/Fonts/NotoSans/NotoSans-Medium.ttf"),
+    NotoSansRegular: require("./src/Assets/Fonts/NotoSans/NotoSans-Regular.ttf"),
+    NotoSansSemiBold: require("./src/Assets/Fonts/NotoSans/NotoSans-SemiBold.ttf"),
+    NotoSansLight: require("./src/Assets/Fonts/NotoSans/NotoSans-Light.ttf"),
 
-function HomeScreen() {
-  return (
-    <View style={styles.container}>
-      <Text>Home Screen</Text>
-      <Image source={Images.MenuIcon} />
-    </View>
-  );
-}
-function SettingsScreen() {
-  return (
-    <View style={styles.container}>
-      <Text>Settings Screen</Text>
-    </View>
-  );
-}
-function ContactsScreen() {
-  return (
-    <View style={styles.container}>
-      <Text>Contacts Screen</Text>
-    </View>
-  );
-}
-function DownloadsScreen() {
-  return (
-    <View style={styles.container}>
-      <Text>Downloads Screen</Text>
-    </View>
-  );
-}
-export default function App({ navigation }) {
+    PoppinsBlack: require("./src/Assets/Fonts/Poppins/Poppins-Black.ttf"),
+    PoppinsBold: require("./src/Assets/Fonts/Poppins/Poppins-Bold.ttf"),
+    PoppinsExtraBold: require("./src/Assets/Fonts/Poppins/Poppins-ExtraBold.ttf"),
+    PoppinsLight: require("./src/Assets/Fonts/Poppins/Poppins-Light.ttf"),
+    PoppinsMedium: require("./src/Assets/Fonts/Poppins/Poppins-Medium.ttf"),
+    PoppinsRegular: require("./src/Assets/Fonts/Poppins/Poppins-Regular.ttf"),
+    PoppinsSemiBold: require("./src/Assets/Fonts/Poppins/Poppins-SemiBold.ttf"),
+    PoppinsThin: require("./src/Assets/Fonts/Poppins/Poppins-Thin.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <NavigationContainer>
-      {/* <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={HomeScreen} />
-        <Drawer.Screen name="Downloads" component={DownloadsScreen} />
-        <Drawer.Screen name="Settings" component={SettingsScreen} />
-        <Drawer.Screen name="Contacts" component={ContactsScreen} />
-      </Drawer.Navigator> */}
       <Main />
     </NavigationContainer>
   );

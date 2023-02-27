@@ -1,5 +1,6 @@
 const Images = {
   AppleLogo: require("./IMG/AppleLogo.png"),
+  AvatarOne: require("./IMG/Avatar1.png"),
   BackArrowIcon: require("./IMG/BackArrowIcon.png"),
   BagIcon: require("./IMG/BagIcon.png"),
   BeatsLogo: require("./IMG/BeatsLogo.png"),

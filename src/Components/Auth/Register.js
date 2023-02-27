@@ -2,7 +2,7 @@ import { Image, ScrollView, Text, View } from "react-native";
 import { Images } from "../../Assets/Assets";
 import { AllStyles } from "../../Assets/Styles/AllStyles";
 
-export default function Login() {
+export default function Register() {
   return (
     <>
       <View style={AllStyles.DefaultContainer}>
@@ -14,7 +14,7 @@ export default function Login() {
               textAlign: "center",
             }}
           >
-            Login Page
+            Register Page
           </Text>
         </ScrollView>
       </View>
