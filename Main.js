@@ -44,7 +44,7 @@ function NavigationHeader({ navigationProps }) {
   console.log(routeName);
 
   const ShowGoBack = ["Product", "Cart", "Checkout", "SavedItems"];
-  const ShowMenu = ["Home", "Login", "Register", "SavedItems"];
+  const ShowMenu = ["Home", "Login", "Register", "SavedItems", "Product"];
   return (
     <Motion.View initial={false} style={[AllStyles.FlexRow, AllStyles.MenuRow]}>
       {ShowMenu.includes(routeName) && (
@@ -61,7 +61,7 @@ function NavigationHeader({ navigationProps }) {
       {ShowGoBack.includes(routeName) && (
         <TouchableOpacity
           style={AllStyles.ActionButtonDefault}
-          onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+          onPress={() => navigation.goBack()}
         >
           <Image
             source={Images.BackArrowIcon}
@@ -297,6 +297,13 @@ export default function Main() {
           )}
         >
           <Drawer.Screen
+            name="Home"
+            component={Home}
+            options={{
+              drawerIcon: getDrawerIcon("Home"),
+            }}
+          />
+          <Drawer.Screen
             name="Login"
             component={Login}
             options={HideDrawerItem}
@@ -317,19 +324,13 @@ export default function Main() {
             options={HideDrawerItem}
           />
           <Drawer.Screen
-            name="Home"
-            component={Home}
-            options={{
-              drawerIcon: getDrawerIcon("Home"),
-            }}
-          />
-          <Drawer.Screen
             name="Profile"
             component={Profile}
             options={{
               drawerIcon: getDrawerIcon("Profile"),
             }}
           />
+
           <Drawer.Screen
             name="Cart"
             component={Cart}

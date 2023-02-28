@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import { useContext } from "react";
 import {
   Image,
@@ -15,6 +16,7 @@ import { FontStyles } from "../Assets/Styles/FontStyles";
 import { HomeStyles } from "../Assets/Styles/HomeStyles";
 
 export default function Home() {
+  const navigation = useNavigation();
   const UserItems = useContext(UserContext);
   const { Cart, SavedItems, getUserItemsUpdate } = UserItems;
   return (
@@ -149,9 +151,10 @@ export default function Home() {
       <View style={[AllStyles.FlexRow, HomeStyles.ProductRow]}>
         {ProductsOne.map((product, index) => {
           return (
-            <View
+            <TouchableOpacity
               style={[AllStyles.FlexColumn, HomeStyles.ProductCard]}
               key={index}
+              onPress={() => navigation.navigate("Product")}
             >
               <Image source={product.image} style={HomeStyles.ProductImage} />
               <View style={[AllStyles.FlexColumn, HomeStyles.ProductDetails]}>
@@ -201,16 +204,17 @@ export default function Home() {
                   </TouchableOpacity>
                 </View>
               </View>
-            </View>
+            </TouchableOpacity>
           );
         })}
       </View>
       <View style={[AllStyles.FlexRow, HomeStyles.ProductRow]}>
         {ProductsTwo.map((product, index) => {
           return (
-            <View
+            <TouchableOpacity
               style={[AllStyles.FlexColumn, HomeStyles.ProductCard]}
               key={index}
+              onPress={() => navigation.navigate("Product")}
             >
               <Image source={product.image} style={HomeStyles.ProductImage} />
               <View style={[AllStyles.FlexColumn, HomeStyles.ProductDetails]}>
@@ -260,7 +264,7 @@ export default function Home() {
                   </TouchableOpacity>
                 </View>
               </View>
-            </View>
+            </TouchableOpacity>
           );
         })}
       </View>

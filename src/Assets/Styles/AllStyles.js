@@ -77,7 +77,9 @@ const AllStyles = StyleSheet.create({
   MenuRow: {
     ...padding(10, 20),
     borderWidth: 0,
-    marginTop: 10,
+    marginTop: 20,
+    marginBottom: 30,
+    backgroundColor: Colors.White,
     justifyContent: "space-between",
     alignItems: "center",
     width: Dimensions.get("screen").width,
