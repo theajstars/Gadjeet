@@ -44,5 +44,23 @@ const Images = {
   StarOrangeIcon: require("./IMG/StarOrangeIcon.png"),
   SupportIcon: require("./IMG/SupportIcon.png"),
 };
+const Brands = [
+  { name: "JBL", image: Images.JblLogo },
+  { name: "Beats", image: Images.BeatsLogo },
+  { name: "Sony", image: Images.SonyLogo },
+  { name: "Bose", image: Images.BoseLogo },
+];
 
-export { Images };
+const ProductsOne = [
+  {
+    image: Images.BlackHeadphonesOne,
+    name: "Sony WH Taiwosaurus-40",
+    price: 3450,
+  },
+  { image: Images.RedHeadphonesOne, name: "Beats by Nevo", price: 3450 },
+];
+const ProductsTwo = [
+  { image: Images.RedHeadphonesTwo, name: "JBL Tune Giddy 410", price: 2220 },
+  { image: Images.BlueHeadPhones, name: "JBL AMD Giga Chad 3.1", price: 160 },
+];
+export { Images, Brands, ProductsOne, ProductsTwo };

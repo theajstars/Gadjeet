@@ -48,7 +48,7 @@ const HomeStyles = StyleSheet.create({
     height: "100%",
   },
   JumboBannerButton: {
-    backgroundColor: Colors.BlackPrimary,
+    backgroundColor: Colors.BlackSecondary,
     width: 100,
     alignItems: "center",
     justifyContent: "center",
@@ -76,6 +76,29 @@ const HomeStyles = StyleSheet.create({
   },
   JumboDotActive: {
     backgroundColor: Colors.BlackPrimary,
+  },
+  SectionTitleRow: {
+    alignItems: "center",
+    justifyContent: "space-between",
+    ...margin(30, 0),
+  },
+  // ChooseBrand: {
+  //   marginTop: 20,
+  // },
+  Brand: {
+    backgroundColor: Colors.WhiteBlue,
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: 120,
+    height: 120,
+    padding: 20,
+    borderRadius: 20,
+    ...margin(0, 15),
+  },
+  BrandImage: {
+    height: 60,
+    width: 60,
+    resizeMode: "contain",
   },
 });
 

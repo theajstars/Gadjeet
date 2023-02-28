@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { Colors } from "./Colors";
 
 const FontStyles = StyleSheet.create({
   NotoSansBlack: {
@@ -39,6 +40,13 @@ const FontStyles = StyleSheet.create({
   },
   PoppinsThin: {
     fontFamily: "PoppinsThin",
+  },
+
+  GrayTertiaryText: {
+    color: Colors.GrayTertiary,
+  },
+  GraySecondaryText: {
+    color: Colors.GraySecondary,
   },
 });
 
