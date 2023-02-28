@@ -54,10 +54,10 @@ const Brands = [
 const ProductsOne = [
   {
     image: Images.BlackHeadphonesOne,
-    name: "Sony WH Taiwosaurus-40",
+    name: "WH Taiwosaurus-40",
     price: 3450,
   },
-  { image: Images.RedHeadphonesOne, name: "Beats by Nevo", price: 3450 },
+  { image: Images.RedHeadphonesOne, name: "Beats by Nevo", price: 1650 },
 ];
 const ProductsTwo = [
   { image: Images.RedHeadphonesTwo, name: "JBL Tune Giddy 410", price: 2220 },

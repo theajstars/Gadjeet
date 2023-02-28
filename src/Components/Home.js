@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import {
   Image,
   ScrollView,
@@ -6,13 +7,16 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { Brands, Images, ProductsOne } from "../Assets/Assets";
+import { UserContext } from "../../Main";
+import { Brands, Images, ProductsOne, ProductsTwo } from "../Assets/Assets";
 import { AllStyles } from "../Assets/Styles/AllStyles";
 import { Colors } from "../Assets/Styles/Colors";
 import { FontStyles } from "../Assets/Styles/FontStyles";
 import { HomeStyles } from "../Assets/Styles/HomeStyles";
 
 export default function Home() {
+  const UserItems = useContext(UserContext);
+  const { Cart, SavedItems, getUserItemsUpdate } = UserItems;
   return (
     <ScrollView style={AllStyles.DefaultContainer}>
       <View style={[HomeStyles.Jumbo, AllStyles.FlexColumn]}>
@@ -142,13 +146,124 @@ export default function Home() {
           Top Products
         </Text>
       </View>
-      {ProductsOne.map((product, index) => {
-        return (
-          <View style={[AllStyles.FlexColumn, HomeStyles.ProductCard]}>
-            {/* <Image source={product.image} style={HomeStyles.ProductImage} /> */}
-          </View>
-        );
-      })}
+      <View style={[AllStyles.FlexRow, HomeStyles.ProductRow]}>
+        {ProductsOne.map((product, index) => {
+          return (
+            <View
+              style={[AllStyles.FlexColumn, HomeStyles.ProductCard]}
+              key={index}
+            >
+              <Image source={product.image} style={HomeStyles.ProductImage} />
+              <View style={[AllStyles.FlexColumn, HomeStyles.ProductDetails]}>
+                <Text style={[FontStyles.NotoSansBold, HomeStyles.ProductName]}>
+                  {product.name}
+                </Text>
+                <Text
+                  style={[
+                    FontStyles.NotoSansBold,
+                    HomeStyles.ProductPrice,
+                    FontStyles.BluePrimaryText,
+                  ]}
+                >
+                  ${product.price.toLocaleString()}
+                </Text>
+                <View style={[AllStyles.FlexRow, HomeStyles.ProductActions]}>
+                  <TouchableOpacity
+                    style={[
+                      HomeStyles.ProductAction,
+                      HomeStyles.ProductActionAdd,
+                    ]}
+                    onPress={() => getUserItemsUpdate("cart", product)}
+                  >
+                    <Text
+                      style={[FontStyles.NotoSansRegular, FontStyles.WhiteText]}
+                    >
+                      Add
+                    </Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={[
+                      HomeStyles.ProductAction,
+                      HomeStyles.ProductActionSave,
+                    ]}
+                    onPress={() => {
+                      getUserItemsUpdate("saved", product);
+                    }}
+                  >
+                    <Text
+                      style={[
+                        FontStyles.NotoSansRegular,
+                        FontStyles.BlackPrimaryText,
+                      ]}
+                    >
+                      Save
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </View>
+          );
+        })}
+      </View>
+      <View style={[AllStyles.FlexRow, HomeStyles.ProductRow]}>
+        {ProductsTwo.map((product, index) => {
+          return (
+            <View
+              style={[AllStyles.FlexColumn, HomeStyles.ProductCard]}
+              key={index}
+            >
+              <Image source={product.image} style={HomeStyles.ProductImage} />
+              <View style={[AllStyles.FlexColumn, HomeStyles.ProductDetails]}>
+                <Text style={[FontStyles.NotoSansBold, HomeStyles.ProductName]}>
+                  {product.name}
+                </Text>
+                <Text
+                  style={[
+                    FontStyles.NotoSansBold,
+                    HomeStyles.ProductPrice,
+                    FontStyles.BluePrimaryText,
+                  ]}
+                >
+                  ${product.price.toLocaleString()}
+                </Text>
+                <View style={[AllStyles.FlexRow, HomeStyles.ProductActions]}>
+                  <TouchableOpacity
+                    style={[
+                      HomeStyles.ProductAction,
+                      HomeStyles.ProductActionAdd,
+                    ]}
+                    onPress={() => getUserItemsUpdate("cart", product)}
+                  >
+                    <Text
+                      style={[FontStyles.NotoSansRegular, FontStyles.WhiteText]}
+                    >
+                      Add
+                    </Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={[
+                      HomeStyles.ProductAction,
+                      HomeStyles.ProductActionSave,
+                    ]}
+                    onPress={() => {
+                      getUserItemsUpdate("saved", product);
+                    }}
+                  >
+                    <Text
+                      style={[
+                        FontStyles.NotoSansRegular,
+                        FontStyles.BlackPrimaryText,
+                      ]}
+                    >
+                      Save
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </View>
+          );
+        })}
+      </View>
     </ScrollView>
   );
 }

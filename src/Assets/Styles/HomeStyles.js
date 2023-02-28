@@ -100,6 +100,62 @@ const HomeStyles = StyleSheet.create({
     width: 60,
     resizeMode: "contain",
   },
+
+  ProductRow: {
+    alignItems: "center",
+    justifyContent: "space-between",
+    ...margin(20, 0),
+    marginTop: 0,
+  },
+  ProductCard: {
+    width: 170,
+    // height: 200,
+    backgroundColor: Colors.WhiteBlue,
+    borderRadius: 20,
+    ...margin(0, 10),
+    alignItems: "center",
+    ...padding(10, 10, 15, 15),
+  },
+  ProductImage: {
+    resizeMode: "contain",
+    height: 100,
+    width: 100,
+  },
+  ProductDetails: {
+    alignItems: "flex-start",
+    width: "100%",
+    marginTop: 5,
+  },
+  ProductName: {
+    fontSize: 16,
+    marginTop: 5,
+  },
+  ProductPrice: {
+    fontSize: 22,
+    marginTop: 5,
+  },
+  ProductActions: {
+    alignItems: "center",
+    justifyContent: "flex-start",
+    marginTop: 5,
+  },
+  ProductAction: {
+    height: 26,
+    width: 60,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  ProductActionAdd: {
+    backgroundColor: Colors.BlackPrimary,
+    borderTopLeftRadius: 20,
+    borderBottomLeftRadius: 20,
+  },
+  ProductActionSave: {
+    backgroundColor: Colors.White,
+    borderTopRightRadius: 20,
+    borderBottomRightRadius: 20,
+  },
 });
 
 export { HomeStyles };

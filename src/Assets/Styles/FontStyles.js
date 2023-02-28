@@ -48,6 +48,15 @@ const FontStyles = StyleSheet.create({
   GraySecondaryText: {
     color: Colors.GraySecondary,
   },
+  BluePrimaryText: {
+    color: Colors.BluePrimary,
+  },
+  WhiteText: {
+    color: Colors.White,
+  },
+  BlackPrimaryText: {
+    color: Colors.BlackPrimary,
+  },
 });
 
 export { FontStyles };

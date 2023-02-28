@@ -75,7 +75,7 @@ const AllStyles = StyleSheet.create({
     height: 23,
   },
   MenuRow: {
-    ...padding(10),
+    ...padding(10, 20),
     borderWidth: 0,
     marginTop: 10,
     justifyContent: "space-between",
