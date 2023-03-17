@@ -57,6 +57,10 @@ const FontStyles = StyleSheet.create({
   BlackPrimaryText: {
     color: Colors.BlackPrimary,
   },
+
+  SectionTitle: {
+    fontSize: 24,
+  },
 });
 
 export { FontStyles };

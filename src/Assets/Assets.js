@@ -56,11 +56,28 @@ const ProductsOne = [
     image: Images.BlackHeadphonesOne,
     name: "WH Taiwosaurus-40",
     price: 3450,
+    quantity: 14,
   },
-  { image: Images.RedHeadphonesOne, name: "Beats by Nevo", price: 1650 },
+  {
+    image: Images.RedHeadphonesOne,
+    name: "Beats by Nevo",
+    price: 1650,
+    quantity: 21,
+  },
 ];
 const ProductsTwo = [
-  { image: Images.RedHeadphonesTwo, name: "JBL Tune Giddy 410", price: 2220 },
-  { image: Images.BlueHeadPhones, name: "JBL AMD Giga Chad 3.1", price: 160 },
+  {
+    image: Images.RedHeadphonesTwo,
+    name: "JBL Tune Giddy 410",
+    price: 2220,
+    quantity: 2,
+  },
+  {
+    image: Images.BlueHeadPhones,
+    name: "JBL AMD Giga Chad 3.1",
+    price: 160,
+    quantity: 2,
+  },
 ];
-export { Images, Brands, ProductsOne, ProductsTwo };
+const AllProducts = [...ProductsOne, ...ProductsTwo, ...ProductsOne];
+export { Images, Brands, ProductsOne, ProductsTwo, AllProducts };

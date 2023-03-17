@@ -11,7 +11,7 @@ export default function Product() {
     "NORAD satellite connectivity",
     "Open portals to Ohio",
     "Built-in Ubuntu OS",
-    "Customizable experience",
+    "Extremely centralized blockchain",
     "Inactive Noise Cancelling",
   ];
   const ProductColours = [

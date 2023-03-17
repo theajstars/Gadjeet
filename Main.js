@@ -44,7 +44,20 @@ function NavigationHeader({ navigationProps }) {
   console.log(routeName);
 
   const ShowGoBack = ["Product", "Cart", "Checkout", "SavedItems"];
-  const ShowMenu = ["Home", "Login", "Register", "SavedItems", "Product"];
+  const ShowMenu = [
+    "Home",
+    "Login",
+    "Register",
+    "SavedItems",
+    "Product",
+    "Cart",
+  ];
+  const ShowTitle = [
+    {
+      route: "Cart",
+      title: "My Cart",
+    },
+  ];
   return (
     <Motion.View initial={false} style={[AllStyles.FlexRow, AllStyles.MenuRow]}>
       {ShowMenu.includes(routeName) && (
@@ -58,6 +71,17 @@ function NavigationHeader({ navigationProps }) {
           />
         </TouchableOpacity>
       )}
+      {ShowTitle.map((page) => {
+        if (page.route === routeName) {
+          return (
+            <Text
+              style={[FontStyles.NotoSansSemiBold, FontStyles.SectionTitle]}
+            >
+              {page.title}
+            </Text>
+          );
+        }
+      })}
       {ShowGoBack.includes(routeName) && (
         <TouchableOpacity
           style={AllStyles.ActionButtonDefault}
@@ -71,10 +95,7 @@ function NavigationHeader({ navigationProps }) {
       )}
       {routeName === "Home" && (
         <View style={[AllStyles.FlexRow]}>
-          <TouchableOpacity
-            style={AllStyles.ActionButtonDefault}
-            onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
-          >
+          <TouchableOpacity style={AllStyles.ActionButtonDefault}>
             <Image
               source={Images.CameraIcon}
               style={AllStyles.ActionButtonDefaultImage}
@@ -89,7 +110,7 @@ function NavigationHeader({ navigationProps }) {
           <Text> </Text>
           <TouchableOpacity
             style={AllStyles.ActionButtonDefault}
-            onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+            onPress={() => navigation.navigate("Cart")}
           >
             <Image
               source={Images.BagIcon}

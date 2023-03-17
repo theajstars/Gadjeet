@@ -1,3 +1,5 @@
+import { Images } from "../Assets";
+
 const Colors = {
   GrayPrimary: "#F3F3F3",
   GraySecondary: "#4A4A4A",
