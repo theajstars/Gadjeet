@@ -4,7 +4,7 @@ import { AllStyles } from "../../Assets/Styles/AllStyles";
 import { BottomBlackJumboStyles } from "../../Assets/Styles/BottomBlackJumboStyles";
 import { FontStyles } from "../../Assets/Styles/FontStyles";
 
-const BottomBlackJumbo = ({ type, title, amount }) => {
+const BottomBlackJumbo = ({ type, title, amount, showPayNow, jumboAction }) => {
   const Types = ["product", "payment_success", "checkout"];
 
   const getJumboContent = () => {
@@ -30,8 +30,14 @@ const BottomBlackJumbo = ({ type, title, amount }) => {
   };
   return (
     <>
-      <View style={[AllStyles.FlexRow, BottomBlackJumboStyles.Container]}>
-        {type !== "paymen_success" && (
+      <View
+        style={[
+          AllStyles.FlexRow,
+          BottomBlackJumboStyles.Container,
+          { height: type === "payment_success" ? 90 : 120 },
+        ]}
+      >
+        {type !== "payment_success" && (
           <View
             style={[AllStyles.FlexColumn, BottomBlackJumboStyles.ContainerLeft]}
           >
@@ -43,6 +49,7 @@ const BottomBlackJumbo = ({ type, title, amount }) => {
             >
               {title}
             </Text>
+
             <Text
               style={[
                 FontStyles.NotoSansBold,
@@ -55,22 +62,44 @@ const BottomBlackJumbo = ({ type, title, amount }) => {
             </Text>
           </View>
         )}
-        <TouchableOpacity
-          style={[AllStyles.FlexRow, BottomBlackJumboStyles.JumboButton]}
-        >
-          <Image
-            source={getJumboContent().image}
-            style={[BottomBlackJumboStyles.JumboButtonImage]}
-          />
-          <Text
-            style={[
-              BottomBlackJumboStyles.JumboButtonText,
-              FontStyles.NotoSansSemiBold,
-            ]}
+        {type !== "checkout" ? (
+          <TouchableOpacity
+            style={[AllStyles.FlexRow, BottomBlackJumboStyles.JumboButton]}
           >
-            {getJumboContent().text}
-          </Text>
-        </TouchableOpacity>
+            <Image
+              source={getJumboContent().image}
+              style={[BottomBlackJumboStyles.JumboButtonImage]}
+            />
+            <Text
+              style={[
+                BottomBlackJumboStyles.JumboButtonText,
+                FontStyles.NotoSansSemiBold,
+              ]}
+            >
+              {getJumboContent().text}
+            </Text>
+          </TouchableOpacity>
+        ) : (
+          showPayNow && (
+            <TouchableOpacity
+              style={[AllStyles.FlexRow, BottomBlackJumboStyles.JumboButton]}
+              onPress={jumboAction}
+            >
+              <Image
+                source={getJumboContent().image}
+                style={[BottomBlackJumboStyles.JumboButtonImage]}
+              />
+              <Text
+                style={[
+                  BottomBlackJumboStyles.JumboButtonText,
+                  FontStyles.NotoSansSemiBold,
+                ]}
+              >
+                {getJumboContent().text}
+              </Text>
+            </TouchableOpacity>
+          )
+        )}
       </View>
     </>
   );

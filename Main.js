@@ -24,7 +24,6 @@ import Login from "./src/Components/Auth/Login";
 import { AllStyles } from "./src/Assets/Styles/AllStyles";
 import Register from "./src/Components/Auth/Register";
 import Product from "./src/Components/Product";
-import Checkout from "./src/Components/Misc/Checkout";
 import Home from "./src/Components/Home";
 import Profile from "./src/Components/Profile";
 import Cart from "./src/Components/Cart";
@@ -34,6 +33,8 @@ import Support from "./src/Components/Support";
 import Settings from "./src/Components/Settings";
 import { Colors } from "./src/Assets/Styles/Colors";
 import { FontStyles } from "./src/Assets/Styles/FontStyles";
+import Checkout from "./src/Components/Checkout";
+import Confirmation from "./src/Components/Confirmation";
 
 function NavigationHeader({ navigationProps }) {
   const UserItems = useContext(UserContext);
@@ -43,7 +44,13 @@ function NavigationHeader({ navigationProps }) {
   const routeName = state?.routeNames[state.index];
   console.log(routeName);
 
-  const ShowGoBack = ["Product", "Cart", "Checkout", "SavedItems"];
+  const ShowGoBack = [
+    "Product",
+    "Cart",
+    "Checkout",
+    "SavedItems",
+    "Confirmation",
+  ];
   const ShowMenu = [
     "Home",
     "Login",
@@ -56,6 +63,14 @@ function NavigationHeader({ navigationProps }) {
     {
       route: "Cart",
       title: "My Cart",
+    },
+    {
+      route: "Checkout",
+      title: "Checkout",
+    },
+    {
+      route: "Confirmation",
+      title: "Confirmation",
     },
   ];
   return (
@@ -342,6 +357,11 @@ export default function Main() {
           <Drawer.Screen
             name="Checkout"
             component={Checkout}
+            options={HideDrawerItem}
+          />
+          <Drawer.Screen
+            name="Confirmation"
+            component={Confirmation}
             options={HideDrawerItem}
           />
           <Drawer.Screen

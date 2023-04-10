@@ -22,7 +22,5 @@ const getShortHand = (style, ...values) => {
 
 export const padding = (...values) => getShortHand("padding", ...values);
 export const margin = (...values) => getShortHand("margin", ...values);
-export const StyleProps = {
-  ScreenHeight,
-  ScreenWidth,
-};
+
+export { ScreenHeight, ScreenWidth };

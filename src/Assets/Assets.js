@@ -79,5 +79,17 @@ const ProductsTwo = [
     quantity: 2,
   },
 ];
+const PaymentOptions = [
+  { title: "Credit / Debit cards", image: Images.MastercardLogo },
+  { title: "Paypal", image: Images.PaypalLogo },
+  { title: "Apple Pay", image: Images.AppleLogo },
+];
 const AllProducts = [...ProductsOne, ...ProductsTwo, ...ProductsOne];
-export { Images, Brands, ProductsOne, ProductsTwo, AllProducts };
+export {
+  Images,
+  Brands,
+  ProductsOne,
+  ProductsTwo,
+  AllProducts,
+  PaymentOptions,
+};

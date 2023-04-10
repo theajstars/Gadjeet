@@ -5,7 +5,7 @@ import { CartStyles } from "../Assets/Styles/CartStyles";
 import { Colors } from "../Assets/Styles/Colors";
 import { FontStyles } from "../Assets/Styles/FontStyles";
 
-export default function Cart() {
+export default function Cart({ navigation }) {
   return (
     <>
       <View style={[AllStyles.DefaultContainer]}>
@@ -118,6 +118,9 @@ export default function Cart() {
         </ScrollView>
         <TouchableOpacity
           style={[CartStyles.CheckoutNowButton, AllStyles.FlexRow]}
+          onPress={() => {
+            navigation.navigate("Checkout");
+          }}
         >
           <Text
             style={[
